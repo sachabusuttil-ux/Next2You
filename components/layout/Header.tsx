@@ -4,7 +4,7 @@ import { useState, useEffect } from "react"
 import Link from "next/link"
 import Image from "next/image"
 import { Button } from "@/components/ui/Button"
-import { Menu } from "lucide-react"
+import { Menu, X } from "lucide-react"
 import { cn } from "@/lib/utils"
 
 export function Header() {
@@ -139,7 +139,7 @@ export function Header() {
                         onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                     >
                         {isMobileMenuOpen ? (
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-6 w-6"><path d="M18 6 6 18" /><path d="m6 6 18 18" /></svg>
+                            <X className="h-6 w-6" />
                         ) : (
                             <Menu className="h-6 w-6" />
                         )}
@@ -150,7 +150,7 @@ export function Header() {
 
             {/* Mobile Menu Overlay */}
             {isMobileMenuOpen && (
-                <div className="absolute top-0 left-0 right-0 bg-white shadow-xl rounded-b-3xl pt-24 pb-8 px-6 md:hidden animate-in slide-in-from-top-5 duration-200">
+                <div className="absolute top-0 left-0 right-0 bg-white/80 backdrop-blur-md border border-white/10 shadow-xl rounded-b-3xl pt-24 pb-8 px-6 md:hidden animate-in slide-in-from-top-5 duration-200">
                     <nav className="flex flex-col gap-6 text-lg font-medium text-center">
                         <Link
                             href="#avantages"
@@ -180,14 +180,6 @@ export function Header() {
                         >
                             Avis
                         </Link>
-                        <Button
-                            className="w-full rounded-full bg-[var(--color-primary)] text-white hover:bg-blue-700 mt-4"
-                            asChild
-                        >
-                            <a href="https://fr.getaround.com/users/3551826" target="_blank" rel="noopener noreferrer">
-                                Voir les véhicules
-                            </a>
-                        </Button>
                     </nav>
                 </div>
             )}
