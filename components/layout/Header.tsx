@@ -10,6 +10,7 @@ import { cn } from "@/lib/utils"
 export function Header() {
     const [isVisible, setIsVisible] = useState(true)
     const [isTop, setIsTop] = useState(true)
+    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
 
     useEffect(() => {
         let lastScrollY = window.scrollY
@@ -18,16 +19,13 @@ export function Header() {
             const currentScrollY = window.scrollY
 
             // Hide/Show logic
-            // Hide if scrolling down AND not at the very top (to avoid flickering)
             if (currentScrollY > lastScrollY && currentScrollY > 100) {
                 setIsVisible(false)
             } else {
                 setIsVisible(true)
             }
 
-            // Top/Scrolled logic (for text/logo color)
-            // Assuming Hero section is around 80vh or ~600-800px. 
-            // We switch to "Light Mode" (Black text) when scrolling past the Hero.
+            // Top/Scrolled logic
             if (currentScrollY > 600) {
                 setIsTop(false)
             } else {
@@ -45,6 +43,10 @@ export function Header() {
         e.preventDefault()
         const targetId = href.replace(/.*\#/, "")
         const elem = document.getElementById(targetId)
+
+        // Close mobile menu if open
+        setIsMobileMenuOpen(false)
+
         elem?.scrollIntoView({
             behavior: "smooth",
         })
@@ -60,13 +62,13 @@ export function Header() {
             )}
         >
             <div className={cn(
-                "flex h-20 items-center justify-between px-8 rounded-full transition-all duration-300 backdrop-blur-md border border-white/10",
-                isTop ? "bg-white/10" : "bg-white/80 border-gray-200/50"
+                "flex h-20 items-center justify-between px-8 rounded-full transition-all duration-300 backdrop-blur-md border border-white/10 relative z-50",
+                isTop && !isMobileMenuOpen ? "bg-white/10" : "bg-white/80 border-gray-200/50"
             )}>
                 <Link href="/" className="flex items-center gap-2">
                     <div className="relative h-12 w-48">
                         <Image
-                            src={isTop ? "/images/logo-white.png" : "/images/logo-blue.png"}
+                            src={isTop && !isMobileMenuOpen ? "/images/logo-white.png" : "/images/logo-blue.png"}
                             alt="Next 2 You"
                             fill
                             className="object-contain object-left"
@@ -130,12 +132,65 @@ export function Header() {
                             Voir les véhicules
                         </a>
                     </Button>
-                    <Button variant="ghost" size="icon" className={cn("md:hidden", isTop ? "text-white" : "text-black")}>
-                        <Menu className="h-5 w-5" />
+                    <Button
+                        variant="ghost"
+                        size="icon"
+                        className={cn("md:hidden", isTop && !isMobileMenuOpen ? "text-white" : "text-black")}
+                        onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                    >
+                        {isMobileMenuOpen ? (
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-6 w-6"><path d="M18 6 6 18" /><path d="m6 6 18 18" /></svg>
+                        ) : (
+                            <Menu className="h-6 w-6" />
+                        )}
                         <span className="sr-only">Menu</span>
                     </Button>
                 </div>
             </div>
+
+            {/* Mobile Menu Overlay */}
+            {isMobileMenuOpen && (
+                <div className="absolute top-0 left-0 right-0 bg-white shadow-xl rounded-b-3xl pt-24 pb-8 px-6 md:hidden animate-in slide-in-from-top-5 duration-200">
+                    <nav className="flex flex-col gap-6 text-lg font-medium text-center">
+                        <Link
+                            href="#avantages"
+                            onClick={(e) => handleSmoothScroll(e, "#avantages")}
+                            className="text-gray-800 hover:text-[var(--color-primary)] transition-colors"
+                        >
+                            Avantages
+                        </Link>
+                        <Link
+                            href="#flotte"
+                            onClick={(e) => handleSmoothScroll(e, "#flotte")}
+                            className="text-gray-800 hover:text-[var(--color-primary)] transition-colors"
+                        >
+                            Véhicules
+                        </Link>
+                        <Link
+                            href="#comment-ca-marche"
+                            onClick={(e) => handleSmoothScroll(e, "#comment-ca-marche")}
+                            className="text-gray-800 hover:text-[var(--color-primary)] transition-colors"
+                        >
+                            Comment ça marche
+                        </Link>
+                        <Link
+                            href="#avis"
+                            onClick={(e) => handleSmoothScroll(e, "#avis")}
+                            className="text-gray-800 hover:text-[var(--color-primary)] transition-colors"
+                        >
+                            Avis
+                        </Link>
+                        <Button
+                            className="w-full rounded-full bg-[var(--color-primary)] text-white hover:bg-blue-700 mt-4"
+                            asChild
+                        >
+                            <a href="https://fr.getaround.com/users/3551826" target="_blank" rel="noopener noreferrer">
+                                Voir les véhicules
+                            </a>
+                        </Button>
+                    </nav>
+                </div>
+            )}
         </header>
     )
 }
