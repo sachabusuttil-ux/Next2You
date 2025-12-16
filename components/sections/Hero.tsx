@@ -50,16 +50,19 @@ export function Hero() {
 
                     <h1 className="text-4xl font-bold tracking-tighter text-white sm:text-5xl md:text-6xl lg:text-7xl flex flex-wrap justify-center items-center gap-x-3">
                         Louez un <span className="text-white font-extrabold">véhicule</span>
-                        <span className="relative inline-block h-[1em] w-[2.5em] align-middle">
-                            <Image
-                                src="/images/hero/24h.png"
-                                alt="24h/24"
-                                fill
-                                className="object-contain"
-                                priority
-                            />
+                        <span className="inline-flex items-center">
+                            <span className="relative inline-block h-[1em] w-[2.5em] align-middle">
+                                <Image
+                                    src="/images/hero/24h.png"
+                                    alt="24h/24"
+                                    fill
+                                    className="object-contain"
+                                    priority
+                                />
+                            </span>
+                            <span>,</span>
                         </span>
-                        , en bas de chez vous.
+                        en bas de chez vous.
                     </h1>
 
                     <p className="max-w-[700px] text-lg text-blue-100 md:text-xl">
