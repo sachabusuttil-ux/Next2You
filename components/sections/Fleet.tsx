@@ -147,7 +147,7 @@ export function Fleet() {
                             <div className="flex -ml-6">
                                 {filteredVehicles.map((vehicle, index) => (
                                     <div key={index} className="flex-[0_0_100%] min-w-0 pl-6 md:flex-[0_0_50%] lg:flex-[0_0_33.333%]">
-                                        <div className="group h-full overflow-hidden rounded-2xl bg-white shadow-lg transition-all hover:shadow-xl border border-gray-100 flex flex-col">
+                                        <div className="group h-full overflow-hidden rounded-2xl bg-white border border-gray-200 flex flex-col transition-all hover:border-gray-300">
                                             <div className="relative aspect-[4/3] overflow-hidden bg-gray-100">
                                                 <Image
                                                     src={vehicle.image}
