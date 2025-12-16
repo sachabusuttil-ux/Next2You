@@ -15,7 +15,8 @@ const config: Config = {
                 secondary: "var(--color-secondary)",
             },
             fontFamily: {
-                sans: ["var(--font-inter)", "sans-serif"],
+                sans: ["var(--font-archivo)", "sans-serif"],
+                heading: ["var(--font-epilogue)", "sans-serif"],
             },
             keyframes: {
                 fadeInUp: {
