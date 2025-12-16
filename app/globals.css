@@ -1,9 +1,7 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-@theme {
-  --font-inter: "Inter", sans-serif;
-  --font-sans: var(--font-inter);
-}
 
 :root {
   --color-primary: #0C57F3;
