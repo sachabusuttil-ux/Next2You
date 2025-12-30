@@ -131,7 +131,7 @@ export function VehicleModal({ vehicle, isOpen, onClose }: VehicleModalProps) {
                             </Button>
 
                             <p className="mt-4 text-center text-xs text-gray-400">
-                                La réservation s'effectue sur la plateforme sécurisée Getaround.
+                                La réservation s&apos;effectue sur la plateforme sécurisée Getaround.
                             </p>
                         </div>
                     </motion.div>
