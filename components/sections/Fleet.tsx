@@ -102,6 +102,7 @@ export function Fleet() {
                                                     alt={vehicle.name}
                                                     fill
                                                     className="object-cover transition-transform duration-500 group-hover:scale-110"
+                                                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                                                 />
                                                 <div className="absolute top-4 right-4 rounded-full bg-white/90 px-3 py-1 text-sm font-bold text-[var(--color-secondary)] backdrop-blur-sm shadow-sm">
                                                     {vehicle.volume}

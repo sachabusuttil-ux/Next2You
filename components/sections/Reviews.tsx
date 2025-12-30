@@ -18,13 +18,13 @@ export function Reviews() {
                             <div className="inline-flex items-center gap-2 rounded-full border border-gray-200 bg-white px-4 py-2 shadow-sm animate-fade-in-up">
                                 <div className="flex -space-x-2">
                                     <div className="relative h-6 w-6 rounded-full border-2 border-white overflow-hidden">
-                                        <Image src="/images/avatars/avatar-1.png" alt="Client" fill className="object-cover" />
+                                        <Image src="/images/avatars/avatar-1.png" alt="Client" fill className="object-cover" sizes="24px" />
                                     </div>
                                     <div className="relative h-6 w-6 rounded-full border-2 border-white overflow-hidden">
-                                        <Image src="/images/avatars/avatar-2.png" alt="Client" fill className="object-cover" />
+                                        <Image src="/images/avatars/avatar-2.png" alt="Client" fill className="object-cover" sizes="24px" />
                                     </div>
                                     <div className="relative h-6 w-6 rounded-full border-2 border-white overflow-hidden">
-                                        <Image src="/images/avatars/avatar-3.png" alt="Client" fill className="object-cover" />
+                                        <Image src="/images/avatars/avatar-3.png" alt="Client" fill className="object-cover" sizes="24px" />
                                     </div>
                                 </div>
                                 <div className="flex items-center gap-1">
@@ -64,6 +64,7 @@ export function Reviews() {
                                             alt={review.name}
                                             fill
                                             className="object-cover"
+                                            sizes="48px"
                                         />
                                     </div>
                                     <div>

@@ -29,13 +29,13 @@ export function Hero() {
                         <div className="inline-flex h-full w-full items-center gap-2 rounded-full bg-[#0C57F3] px-3 py-1 backdrop-blur-3xl">
                             <div className="flex -space-x-2">
                                 <div className="relative h-6 w-6 rounded-full border-2 border-[#0C57F3] overflow-hidden">
-                                    <Image src="/images/avatars/avatar-1.png" alt="Client" fill className="object-cover" />
+                                    <Image src="/images/avatars/avatar-1.png" alt="Client" fill className="object-cover" sizes="24px" />
                                 </div>
                                 <div className="relative h-6 w-6 rounded-full border-2 border-[#0C57F3] overflow-hidden">
-                                    <Image src="/images/avatars/avatar-2.png" alt="Client" fill className="object-cover" />
+                                    <Image src="/images/avatars/avatar-2.png" alt="Client" fill className="object-cover" sizes="24px" />
                                 </div>
                                 <div className="relative h-6 w-6 rounded-full border-2 border-[#0C57F3] overflow-hidden">
-                                    <Image src="/images/avatars/avatar-3.png" alt="Client" fill className="object-cover" />
+                                    <Image src="/images/avatars/avatar-3.png" alt="Client" fill className="object-cover" sizes="24px" />
                                 </div>
                             </div>
                             <span className="text-sm font-medium text-white flex items-center gap-1">
@@ -58,6 +58,7 @@ export function Hero() {
                                     fill
                                     className="object-contain"
                                     priority
+                                    sizes="(max-width: 768px) 100px, 150px"
                                 />
                             </span>
                             <span>,</span>
