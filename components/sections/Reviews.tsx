@@ -1,27 +1,7 @@
 import { Star } from "lucide-react"
 import Image from "next/image"
 import { SectionInView } from "@/components/ui/SectionInView"
-
-const reviews = [
-    {
-        name: "Client Getaround",
-        role: "Déménagement",
-        content: "Voiture parfaitement adaptée à mon petit déménagement. Facile à conduire et à faire entrer dans un parking en sous-sol. Un gros plus : le diable et la couverture fournies.",
-        rating: 5,
-    },
-    {
-        name: "Client Getaround",
-        role: "Location",
-        content: "Voiture propre et agréable à conduire en ville ! Tout s'est très bien passé. Deuxième location de cette voiture et tout s’est une nouvelle fois bien passé !",
-        rating: 5,
-    },
-    {
-        name: "Client Getaround",
-        role: "Utilitaire",
-        content: "La voiture est un peu usée mais fonctionne très bien. Le lieu de récupération est pratique. Elle est très propre. Le support de téléphone est pratique ainsi que la couverture et le diable fournis.",
-        rating: 4,
-    },
-]
+import { reviews } from "@/lib/data/reviews"
 
 export function Reviews() {
     return (
@@ -61,7 +41,7 @@ export function Reviews() {
 
                     <div className="grid gap-8 md:grid-cols-3">
                         {reviews.map((review, index) => (
-                            <div key={index} className="flex flex-col justify-between rounded-2xl bg-white p-8 shadow-sm border border-gray-100">
+                            <div key={index} className="flex flex-col justify-between rounded-2xl bg-white p-8 shadow-sm border border-gray-100 transition-all hover:shadow-md">
                                 <div className="mb-6">
                                     <div className="flex gap-1 mb-4">
                                         {Array.from({ length: 5 }).map((_, i) => (
@@ -72,11 +52,19 @@ export function Reviews() {
                                         ))}
                                     </div>
                                     <p className="text-gray-600 italic">&quot;{review.content}&quot;</p>
+                                    <p className="mt-4 text-xs font-semibold text-[var(--color-primary)] bg-blue-50 inline-block px-2 py-1 rounded">
+                                        Loué : {review.vehicle}
+                                    </p>
                                 </div>
 
                                 <div className="flex items-center gap-4">
-                                    <div className="h-10 w-10 rounded-full bg-gray-200 flex items-center justify-center font-bold text-gray-500">
-                                        {review.name.charAt(0)}
+                                    <div className="relative h-12 w-12 rounded-full overflow-hidden border border-gray-100">
+                                        <Image
+                                            src={review.avatar}
+                                            alt={review.name}
+                                            fill
+                                            className="object-cover"
+                                        />
                                     </div>
                                     <div>
                                         <p className="font-bold text-[var(--color-secondary)]">{review.name}</p>

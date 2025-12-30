@@ -17,7 +17,7 @@ export function Footer() {
                             />
                         </div>
                         <p className="text-gray-400 max-w-sm">
-                            La location d&apos;utilitaires simplifiée. Disponible 24h/24 et 7j/7 via l&apos;application Getaround.
+                            La location de véhicules simplifiée. Disponible 24h/24 et 7j/7 via l&apos;application Getaround.
                         </p>
                     </div>
 
@@ -34,9 +34,9 @@ export function Footer() {
                     <div>
                         <h3 className="font-bold mb-4">Légal</h3>
                         <ul className="space-y-2 text-sm text-gray-400">
-                            <li><Link href="#" className="hover:text-white">Mentions légales</Link></li>
-                            <li><Link href="#" className="hover:text-white">CGU</Link></li>
-                            <li><Link href="#" className="hover:text-white">Politique de confidentialité</Link></li>
+                            <li><Link href="/mentions-legales" className="hover:text-white">Mentions légales</Link></li>
+                            <li><Link href="/cgu" className="hover:text-white">CGU</Link></li>
+                            <li><Link href="/politique-de-confidentialite" className="hover:text-white">Politique de confidentialité</Link></li>
                             <li><a href="mailto:next2upro@gmail.com" className="hover:text-white">Contact</a></li>
                         </ul>
                     </div>
@@ -46,7 +46,9 @@ export function Footer() {
                     <p className="text-sm text-gray-500">
                         © {new Date().getFullYear()} Next 2 You. Tous droits réservés.
                     </p>
-                    <Button>Louer un véhicule</Button>
+                    <Button asChild>
+                        <Link href="#flotte">Louer un véhicule</Link>
+                    </Button>
                 </div>
             </div>
         </footer>

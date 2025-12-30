@@ -10,7 +10,7 @@ const advantages = [
     {
         icon: Wallet,
         title: "Tarifs flexibles",
-        description: "Payez à l’heure ou à la journée, c’est vous qui décidez. le prix affiché.",
+        description: "Payez à l’heure ou à la journée, c’est vous qui décidez.",
     },
     {
         icon: Truck,

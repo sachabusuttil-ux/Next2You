@@ -13,12 +13,12 @@ const steps = [
     {
         icon: Smartphone,
         title: "Déverrouillez",
-        description: "Utilisez votre smartphone pour ouvrir le véhicule.",
+        description: "Utilisez votre smartphone pour géolocaliser et ouvrir le véhicule.",
     },
     {
         icon: Key,
         title: "Roulez",
-        description: "Faites votre trajet en toute sérénité. Assurance tous risques incluse.",
+        description: "Faites votre trajet en toute sérénité, l’assurance tous risques AXA est incluse.",
     },
     {
         icon: Flag,
